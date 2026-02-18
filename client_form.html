@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Assessment Form - DINA BARAKAT CLINIC</title>
+    <style>
+        /* 
+         * Breast Cancer Assessment Form Styles
+         * DINA BARAKAT CLINIC
+         */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .clinic-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .clinic-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .clinic-header h2 {
+            font-size: 1.5em;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        /* Back Link */
+        .back-link {
+            padding: 20px 30px;
+            background: #f8f9fa;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            color: #764ba2;
+        }
+
+        /* Form Styles */
+        .evaluation-form {
+            padding: 30px;
+        }
+
+        .form-section {
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .form-section:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h3 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .subsection {
+            margin-top: 20px;
+        }
+
+        .subsection h4 {
+            color: #2d3748;
+            font-size: 1.25em;
+            margin-bottom: 18px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding-left: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .subsection h5 {
+            color: #4a5568;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* Form Row and Group */
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #4a5568;
+            font-size: 0.9em;
+            letter-spacing: 0.2px;
+        }
+
+        .required {
+            color: #e53e3e;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            padding: 10px 14px;
+            border: 1.5px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.2s ease;
+            background: #fff;
+            color: #2d3748;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Surgical Procedures - Elegant Design */
+        .surgical-procedures {
+            background: linear-gradient(to bottom, #f8f9fc 0%, #ffffff 100%);
+            padding: 0;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .procedure-group {
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .procedure-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 16px 24px;
+            font-weight: 600;
+            font-size: 1.05em;
+            color: #fff;
+            letter-spacing: 0.3px;
+            border: none;
+        }
+
+        .oncologist-header {
+            text-align: left;
+        }
+
+        .procedure-subheader {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 3fr;
+            background: linear-gradient(to right, #f7f9fc 0%, #eef2f7 100%);
+            padding: 12px 24px;
+            font-weight: 600;
+            border-bottom: 1px solid #e1e8ed;
+            font-size: 0.85em;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .procedure-label {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .procedure-item {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 3fr;
+            padding: 20px 24px;
+            border-bottom: 1px solid #f0f4f8;
+            gap: 20px;
+            align-items: start;
+            transition: background-color 0.2s ease;
+        }
+
+        .procedure-item:hover {
+            background-color: #fafbfc;
+        }
+
+        .procedure-item:last-child {
+            border-bottom: none;
+        }
+
+        .surgery-name-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .surgery-name-col label,
+        .surgery-name-col .surgery-name {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            color: #2d3748;
+            font-size: 0.95em;
+        }
+
+        .surgery-name-col label input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .inline-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .inline-fields label {
+            font-weight: 500;
+            font-size: 0.85em;
+            color: #4a5568;
+            margin: 0;
+        }
+
+        .inline-fields input[type="number"] {
+            width: 100px;
+            padding: 8px;
+            border: 1.5px solid #e1e8ed;
+            border-radius: 6px;
+            font-size: 0.9em;
+        }
+
+        .onset-date-col {
+            display: flex;
+            align-items: flex-start;
+            padding-top: 2px;
+        }
+
+        .onset-date-col input[type="date"] {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+            background: #fff;
+            color: #2d3748;
+        }
+
+        .onset-date-col input[type="date"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .oncologist-fields {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .oncologist-fields textarea {
+            resize: vertical;
+            min-height: 65px;
+            padding: 10px 14px;
+            border: 1.5px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-family: inherit;
+            transition: all 0.2s ease;
+            background: #fff;
+            color: #2d3748;
+            line-height: 1.5;
+        }
+
+        .oncologist-fields textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .oncologist-fields textarea::placeholder,
+        .oncologist-fields input::placeholder {
+            color: #a0aec0;
+        }
+
+        .oncologist-fields input[type="text"] {
+            padding: 10px 14px;
+            border: 1.5px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+            background: #fff;
+            color: #2d3748;
+        }
+
+        .oncologist-fields input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        /* Treatment Groups */
+        .treatment-group {
+            background: #f8f9fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .treatment-group h5 {
+            color: #2d3748;
+            font-size: 1.05em;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        /* Goals Container */
+        .goals-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .goal-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .goal-column h4 {
+            margin-bottom: 20px;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .goal-item {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e1e8ed;
+        }
+
+        .goal-item textarea {
+            padding: 10px 14px;
+            border: 1.5px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-family: inherit;
+            resize: vertical;
+            background: #fff;
+            color: #2d3748;
+            transition: all 0.2s ease;
+        }
+
+        .goal-item textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .goal-item input[type="text"] {
+            padding: 10px 14px;
+            border: 1.5px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 0.9em;
+            background: #fff;
+            color: #2d3748;
+            transition: all 0.2s ease;
+        }
+
+        .goal-item input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e1e8ed;
+            justify-content: center;
+        }
+
+        button,
+        a.btn-cancel {
+            padding: 12px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-reset {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-reset:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-cancel {
+            background: #cbd5e0;
+            color: #2d3748;
+        }
+
+        .btn-cancel:hover {
+            background: #a0aec0;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #c3e6cb;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Treatment Session Item */
+        .treatment-session-item {
+            background: #f8f9fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        /* Add More Button */
+        .btn-add-more {
+            background: #667eea;
+            color: white;
+            padding: 10px 18px;
+            font-size: 0.95em;
+        }
+
+        .btn-add-more:hover {
+            background: #5568d3;
+            transform: translateY(-1px);
+        }
+
+        /* Remove Button */
+        .btn-remove {
+            background: #dc3545 !important;
+            color: white !important;
+            padding: 8px 16px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            cursor: pointer !important;
+            font-size: 0.9em !important;
+        }
+
+        .btn-remove:hover {
+            background: #c82333 !important;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #6c757d;
+            border-top: 1px solid #e1e8ed;
+        }
+
+        @media (max-width: 768px) {
+            .procedure-subheader,
+            .procedure-item {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .goals-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            button,
+            a.btn-cancel {
+                width: 100%;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .form-actions {
+                display: none;
+            }
+
+            .clinic-header {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="clinic-header">
+            <h1>DINA BARAKAT CLINIC</h1>
+            <h2>Patient Assessment Form - Breast Cancer Evaluation</h2>
+        </header>
+
+        <div class="back-link">
+            <a href="#">← Back to Home</a>
+        </div>
+
+        <form action="#" method="POST" class="evaluation-form" id="patientForm">
+
+            <!-- Section I: Personal Information -->
+            <section class="form-section">
+                <h3>I. Personal Information</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name: <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_of_birth">D.O.B: <span class="required">*</span></label>
+                        <input type="date" id="date_of_birth" name="date_of_birth" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profession">Profession:</label>
+                        <input type="text" id="profession" name="profession">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number:</label>
+                        <input type="tel" id="phone_number" name="phone_number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emergency_contact_number">Emergency Contact Number:</label>
+                        <input type="tel" id="emergency_contact_number" name="emergency_contact_number">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="referred_by">Referred by:</label>
+                        <input type="text" id="referred_by" name="referred_by">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blood_type">Blood Type:</label>
+                        <select id="blood_type" name="blood_type">
+                            <option value="">Select...</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section II: General Medical History -->
+            <section class="form-section">
+                <h3>II. General Medical History</h3>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="family_status">Family Status:</label>
+                        <input type="text" id="family_status" name="family_status">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="family_medical_history">Family Medical History:</label>
+                        <textarea id="family_medical_history" name="family_medical_history" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="general_medical_history">Medical History:</label>
+                        <textarea id="general_medical_history" name="general_medical_history" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="allergies">Allergies:</label>
+                        <textarea id="allergies" name="allergies" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="sports_activity_prior">Sports/Activity - Prior to Diagnosis:</label>
+                        <textarea id="sports_activity_prior" name="sports_activity_prior" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="sports_activity_current">Sports/Activity - Current:</label>
+                        <textarea id="sports_activity_current" name="sports_activity_current" rows="2"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section III: General Medical Information -->
+            <section class="form-section">
+                <h3>III. General Medical Information</h3>
+
+                <div class="subsection">
+                    <div class="surgical-procedures">
+                        <div class="procedure-group">
+                            <div class="procedure-header">
+                                <span class="procedure-label">Surgical Procedures:</span>
+                                <span class="oncologist-header">Physician Information:</span>
+                            </div>
+                            <div class="procedure-subheader">
+                                <span class="surgery-col">Surgeries</span>
+                                <span class="onset-col">Onset Date</span>
+                                <span class="oncologist-col">Description & Physician</span>
+                            </div>
+
+                            <!-- Lumpectomy -->
+                            <div class="procedure-item">
+                                <div class="surgery-name-col">
+                                    <label>
+                                        <input type="checkbox" name="surgery_lumpectomy" id="surgery_lumpectomy">
+                                        Lumpectomy
+                                    </label>
+                                </div>
+                                <div class="onset-date-col">
+                                    <input type="date" name="lumpectomy_onset_date" id="lumpectomy_onset_date">
+                                </div>
+                                <div class="oncologist-fields">
+                                    <textarea name="lumpectomy_description" id="lumpectomy_description" rows="2" placeholder="Description"></textarea>
+                                    <input type="text" name="lumpectomy_physician" id="lumpectomy_physician" placeholder="Physician">
+                                </div>
+                            </div>
+
+                            <!-- Mastectomy -->
+                            <div class="procedure-item">
+                                <div class="surgery-name-col">
+                                    <label>
+                                        <input type="checkbox" name="surgery_mastectomy" id="surgery_mastectomy">
+                                        Mastectomy
+                                    </label>
+                                </div>
+                                <div class="onset-date-col">
+                                    <input type="date" name="mastectomy_onset_date" id="mastectomy_onset_date">
+                                </div>
+                                <div class="oncologist-fields">
+                                    <textarea name="mastectomy_description" id="mastectomy_description" rows="2" placeholder="Description"></textarea>
+                                    <input type="text" name="mastectomy_physician" id="mastectomy_physician" placeholder="Physician">
+                                </div>
+                            </div>
+
+                            <!-- SLNB -->
+                            <div class="procedure-item">
+                                <div class="surgery-name-col">
+                                    <label>
+                                        <input type="checkbox" name="surgery_slnb" id="surgery_slnb">
+                                        SLNB
+                                    </label>
+                                    <div class="inline-fields">
+                                        <label for="slnb_number_of_ln">Number of LN:</label>
+                                        <input type="number" name="slnb_number_of_ln" id="slnb_number_of_ln" min="0" style="width: 100px;">
+                                        <label for="slnb_number_of_positive_ln">Number of Positive LN:</label>
+                                        <input type="number" name="slnb_number_of_positive_ln" id="slnb_number_of_positive_ln" min="0" style="width: 100px;">
+                                    </div>
+                                </div>
+                                <div class="onset-date-col">
+                                    <input type="date" name="slnb_onset_date" id="slnb_onset_date">
+                                </div>
+                                <div class="oncologist-fields">
+                                    <textarea name="slnb_description" id="slnb_description" rows="2" placeholder="Description"></textarea>
+                                    <input type="text" name="slnb_physician" id="slnb_physician" placeholder="Physician">
+                                </div>
+                            </div>
+
+                            <!-- ALND -->
+                            <div class="procedure-item">
+                                <div class="surgery-name-col">
+                                    <label>
+                                        <input type="checkbox" name="surgery_alnd" id="surgery_alnd">
+                                        ALND
+                                    </label>
+                                    <div class="inline-fields">
+                                        <label for="alnd_number_of_ln">Number of LN:</label>
+                                        <input type="number" name="alnd_number_of_ln" id="alnd_number_of_ln" min="0" style="width: 100px;">
+                                        <label for="alnd_number_of_positive_ln">Number of Positive LN:</label>
+                                        <input type="number" name="alnd_number_of_positive_ln" id="alnd_number_of_positive_ln" min="0" style="width: 100px;">
+                                    </div>
+                                </div>
+                                <div class="onset-date-col">
+                                    <input type="date" name="alnd_onset_date" id="alnd_onset_date">
+                                </div>
+                                <div class="oncologist-fields">
+                                    <textarea name="alnd_description" id="alnd_description" rows="2" placeholder="Description"></textarea>
+                                    <input type="text" name="alnd_physician" id="alnd_physician" placeholder="Physician">
+                                </div>
+                            </div>
+
+                            <!-- Reconstruction -->
+                            <div class="procedure-item">
+                                <div class="surgery-name-col">
+                                    <span class="surgery-name">Reconstruction:</span>
+                                    <div class="radio-group">
+                                        <label>
+                                            <input type="radio" name="reconstruction_type" value="immediate">
+                                            Immediate
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="reconstruction_type" value="2_steps">
+                                            2 steps
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="onset-date-col">
+                                    <input type="date" name="reconstruction_onset_date" id="reconstruction_onset_date">
+                                </div>
+                                <div class="oncologist-fields">
+                                    <textarea name="reconstruction_description" id="reconstruction_description" rows="2" placeholder="Description"></textarea>
+                                    <input type="text" name="reconstruction_physician" id="reconstruction_physician" placeholder="Physician">
+                                </div>
+                            </div>
+
+                            <!-- Other Surgeries -->
+                            <div class="procedure-item">
+                                <div class="surgery-name-col">
+                                    <span class="surgery-name">Other Surgeries:</span>
+                                </div>
+                                <div class="onset-date-col">
+                                    <input type="date" name="other_surgeries_onset_date" id="other_surgeries_onset_date">
+                                </div>
+                                <div class="oncologist-fields">
+                                    <textarea name="other_surgeries_description" id="other_surgeries_description" rows="2" placeholder="Description"></textarea>
+                                    <input type="text" name="other_surgeries_physician" id="other_surgeries_physician" placeholder="Physician">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment Modalities -->
+                <div class="subsection">
+                    <h4>Treatment Modalities</h4>
+
+                    <div class="treatment-group">
+                        <h5>Chemotherapy</h5>
+                        <div id="chemotherapy-list">
+                            <div class="treatment-item">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Type:</label>
+                                        <select name="chemo_type[]">
+                                            <option value="">Select...</option>
+                                            <option value="neo_adjuvant">Neo Adjuvant</option>
+                                            <option value="adjuvant_therapy">Adjuvant Therapy</option>
+                                            <option value="targeted_therapy">Targeted Therapy</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Period From:</label>
+                                        <input type="date" name="chemo_period_from[]">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Period To:</label>
+                                        <input type="date" name="chemo_period_to[]">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Last Session:</label>
+                                        <input type="date" name="chemo_last_session[]">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mode of Administration:</label>
+                                        <input type="text" name="chemo_mode[]">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Description:</label>
+                                        <textarea name="chemo_description[]" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Physician:</label>
+                                        <input type="text" name="chemo_physician[]">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add-more" onclick="addChemotherapy()">+ Add Another Chemotherapy</button>
+                    </div>
+
+                    <div class="treatment-group">
+                        <h5>Hormonal Therapy</h5>
+                        <div id="hormonal-list">
+                            <div class="treatment-item">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Type:</label>
+                                        <select name="hormonal_type[]" class="hormonal-type-select" onchange="toggleJointPainField(this)">
+                                            <option value="">Select...</option>
+                                            <option value="anti_lhrh">Anti LHRH (zoladex, Decapeptyl)</option>
+                                            <option value="aromatase_inhibitors">Aromatase Inhibitors (Femara/Arimidex/Aromasin)</option>
+                                            <option value="tamoxifen">Tamoxifen</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Period From:</label>
+                                        <input type="date" name="hormonal_period_from[]">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Period To:</label>
+                                        <input type="date" name="hormonal_period_to[]">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group joint-pain-field" style="display: none;">
+                                        <label>
+                                            <input type="checkbox" name="hormonal_joint_pain[]" value="1">
+                                            Any joint pain/stiffness?
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Last Session:</label>
+                                        <input type="date" name="hormonal_last_session[]">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mode of Administration:</label>
+                                        <input type="text" name="hormonal_mode[]">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Description:</label>
+                                        <textarea name="hormonal_description[]" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Physician:</label>
+                                        <input type="text" name="hormonal_physician[]">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add-more" onclick="addHormonal()">+ Add Another Hormonal Therapy</button>
+                    </div>
+
+                    <div class="treatment-group">
+                        <h5>Immunotherapy</h5>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Period From:</label>
+                                <input type="date" name="immunotherapy_period_from">
+                            </div>
+                            <div class="form-group">
+                                <label>Period To:</label>
+                                <input type="date" name="immunotherapy_period_to">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Last Session:</label>
+                                <input type="date" name="immunotherapy_last_session">
+                            </div>
+                            <div class="form-group">
+                                <label>Mode of Administration:</label>
+                                <input type="text" name="immunotherapy_mode">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Description:</label>
+                                <textarea name="immunotherapy_description" rows="2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Physician:</label>
+                                <input type="text" name="immunotherapy_physician">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-group">
+                        <h5>Radiation Therapy</h5>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Type:</label>
+                                <input type="text" name="radiation_type">
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Sessions:</label>
+                                <input type="number" name="radiation_sessions" min="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label>Targeted Areas:</label>
+                                <input type="text" name="radiation_targeted_areas">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Period From:</label>
+                                <input type="date" name="radiation_period_from">
+                            </div>
+                            <div class="form-group">
+                                <label>Period To:</label>
+                                <input type="date" name="radiation_period_to">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Last Session:</label>
+                                <input type="date" name="radiation_last_session">
+                            </div>
+                            <div class="form-group">
+                                <label>Mode of Administration:</label>
+                                <input type="text" name="radiation_mode">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Description:</label>
+                                <textarea name="radiation_description" rows="2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Physician:</label>
+                                <input type="text" name="radiation_physician">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section IV: Physical Findings -->
+            <section class="form-section">
+                <h3>IV. Physical Findings</h3>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="pain_quality_mcgill">Pain Evaluation :</label>
+                        <textarea id="pain_quality_mcgill" name="pain_quality_mcgill" rows="2" placeholder="(Pain Quality: McGill-short form / Pain Disability: Pain Disability Index / Combined Pain Measures: Brief Pain Inventory)"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="neuropathy_assessment">Neuropathy (Functional Assessment of Cancer):</label>
+                        <textarea id="neuropathy_assessment" name="neuropathy_assessment" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fatigue">Fatigue :</label>
+                        <input type="text" id="fatigue" name="fatigue" placeholder="(Unidimensional: BFI - Multidimensional: FACT-B)">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="lymphedema_status">Lymphedema/Breast Edema:</label>
+                        <textarea id="lymphedema_status" name="lymphedema_status" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="hematoma_seroma">Hematoma / Seroma:</label>
+                        <textarea id="hematoma_seroma" name="hematoma_seroma" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="tissue_adhesions">Tissue Adhesions:</label>
+                        <textarea id="tissue_adhesions" name="tissue_adhesions" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="rom_evaluation">ROM Evaluation:</label>
+                        <textarea id="rom_evaluation" name="rom_evaluation" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="serratus_weakness">Serratus Anterior Weakness:</label>
+                        <textarea id="serratus_weakness" name="serratus_weakness" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="scar_tissue">Scar tissue:</label>
+                        <textarea id="scar_tissue" name="scar_tissue" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="cardiotoxicity">Cardiotoxicity:</label>
+                        <textarea id="cardiotoxicity" name="cardiotoxicity" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="bone_density">Bone Density\Osteopenia\Osteoporosis:</label>
+                        <textarea id="bone_density" name="bone_density" rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quality_of_life_fact_b">Quality of Life (Breast cancer): FACT-B:</label>
+                        <input type="number" step="0.1" id="quality_of_life_fact_b" name="quality_of_life_fact_b">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="diagnosis">Diagnosis:</label>
+                        <textarea id="diagnosis" name="diagnosis" rows="3"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section V: Patient Goals -->
+            <section class="form-section">
+                <h3>V. Patient's Goals</h3>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <textarea name="patient_goals" id="patient_goals" rows="4" placeholder="Enter patient's goals..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Treatment Goals -->
+            <section class="form-section">
+                <h3>Treatment Goals + Frequency</h3>
+
+                <div class="goals-container">
+                    <div class="goal-column">
+                        <h4>Short Term</h4>
+                        <div id="short-term-goals">
+                            <div class="goal-item">
+                                <textarea name="short_term_goals[]" rows="3" placeholder="Short term goal..."></textarea>
+                                <input type="text" name="short_term_frequency[]" placeholder="Frequency (e.g., 3x/week)">
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add-more" onclick="addShortTermGoal()">+ Add Short Term Goal</button>
+                    </div>
+
+                    <div class="goal-column">
+                        <h4>Long Term</h4>
+                        <div id="long-term-goals">
+                            <div class="goal-item">
+                                <textarea name="long_term_goals[]" rows="3" placeholder="Long term goal..."></textarea>
+                                <input type="text" name="long_term_frequency[]" placeholder="Frequency (e.g., Daily)">
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add-more" onclick="addLongTermGoal()">+ Add Long Term Goal</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section VI: Treatment Modalities Sessions -->
+            <section class="form-section">
+                <h3>VI. Treatment Modalities (Sessions)</h3>
+
+                <div id="treatment-sessions-list">
+                    <div class="treatment-session-item" style="background: #f8f9fc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Date:</label>
+                                <input type="date" name="session_date[]">
+                            </div>
+                            <div class="form-group">
+                                <label>Modalities:</label>
+                                <input type="text" name="session_modalities[]">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Assessment:</label>
+                                <input type="text" name="session_assessment[]">
+                            </div>
+                            <div class="form-group">
+                                <label>Measurement:</label>
+                                <input type="text" name="session_measurement[]">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>CDT:</label>
+                                <input type="text" name="session_cdt[]">
+                            </div>
+                            <div class="form-group">
+                                <label>MFRT:</label>
+                                <input type="text" name="session_mfrt[]">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Exercises:</label>
+                                <input type="text" name="session_exercises[]">
+                            </div>
+                            <div class="form-group">
+                                <label>SABC:</label>
+                                <input type="text" name="session_sabc[]">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Patient Education:</label>
+                                <input type="text" name="session_patient_education[]">
+                            </div>
+                            <div class="form-group">
+                                <label>Others:</label>
+                                <input type="text" name="session_others[]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn-add-more" onclick="addTreatmentSession()">+ Add Another Session</button>
+            </section>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Save Form</button>
+                <button type="reset" class="btn-reset">Clear Form</button>
+                <a href="#" class="btn-cancel">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 DINA BARAKAT CLINIC - All Rights Reserved</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Medical Assessment Form</p>
+    </div>
+
+    <script>
+        const form = document.getElementById('patientForm');
+        const STORAGE_KEY = 'patientFormData';
+
+        // Load saved form data on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedData = localStorage.getItem(STORAGE_KEY);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                Object.keys(data).forEach(key => {
+                    const elements = form.querySelectorAll(`[name="${key}"]`);
+                    elements.forEach(element => {
+                        if (element.type === 'checkbox' || element.type === 'radio') {
+                            element.checked = (data[key] === 'on' || data[key] === element.value);
+                        } else {
+                            element.value = data[key];
+                        }
+                    });
+                });
+            }
+        });
+
+        // Auto-save form data on change
+        form.addEventListener('change', () => {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            alert('Form saved successfully!');
+        });
+
+        // Remove element function
+        function removeElement(button) {
+            button.closest('.treatment-item, .goal-item, .treatment-session-item').remove();
+        }
+
+        // Add Chemotherapy
+        function addChemotherapy() {
+            const container = document.getElementById('chemotherapy-list');
+            const newItem = document.createElement('div');
+            newItem.className = 'treatment-item';
+            newItem.innerHTML = `
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Type:</label>
+                        <select name="chemo_type[]">
+                            <option value="">Select...</option>
+                            <option value="neo_adjuvant">Neo Adjuvant</option>
+                            <option value="adjuvant_therapy">Adjuvant Therapy</option>
+                            <option value="targeted_therapy">Targeted Therapy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Period From:</label>
+                        <input type="date" name="chemo_period_from[]">
+                    </div>
+                    <div class="form-group">
+                        <label>Period To:</label>
+                        <input type="date" name="chemo_period_to[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Last Session:</label>
+                        <input type="date" name="chemo_last_session[]">
+                    </div>
+                    <div class="form-group">
+                        <label>Mode of Administration:</label>
+                        <input type="text" name="chemo_mode[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea name="chemo_description[]" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Physician:</label>
+                        <input type="text" name="chemo_physician[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button type="button" class="btn-remove" onclick="removeElement(this)" style="background: #dc3545; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Remove</button>
+                </div>
+            `;
+            container.appendChild(newItem);
+        }
+
+        // Toggle joint pain field based on hormonal type
+        function toggleJointPainField(selectElement) {
+            const treatmentItem = selectElement.closest('.treatment-item');
+            const jointPainField = treatmentItem.querySelector('.joint-pain-field');
+            const selectedValue = selectElement.value;
+            if (selectedValue === 'aromatase_inhibitors') {
+                jointPainField.style.display = 'block';
+            } else {
+                jointPainField.style.display = 'none';
+            }
+        }
+
+        // Add Hormonal Therapy
+        function addHormonal() {
+            const container = document.getElementById('hormonal-list');
+            const newItem = document.createElement('div');
+            newItem.className = 'treatment-item';
+            newItem.innerHTML = `
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Type:</label>
+                        <select name="hormonal_type[]" class="hormonal-type-select" onchange="toggleJointPainField(this)">
+                            <option value="">Select...</option>
+                            <option value="anti_lhrh">Anti LHRH (zoladex, Decapeptyl)</option>
+                            <option value="aromatase_inhibitors">Aromatase Inhibitors (Femara/Arimidex/Aromasin)</option>
+                            <option value="tamoxifen">Tamoxifen</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Period From:</label>
+                        <input type="date" name="hormonal_period_from[]">
+                    </div>
+                    <div class="form-group">
+                        <label>Period To:</label>
+                        <input type="date" name="hormonal_period_to[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group joint-pain-field" style="display: none;">
+                        <label>
+                            <input type="checkbox" name="hormonal_joint_pain[]" value="1">
+                            Any joint pain/stiffness?
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Last Session:</label>
+                        <input type="date" name="hormonal_last_session[]">
+                    </div>
+                    <div class="form-group">
+                        <label>Mode of Administration:</label>
+                        <input type="text" name="hormonal_mode[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea name="hormonal_description[]" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Physician:</label>
+                        <input type="text" name="hormonal_physician[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button type="button" class="btn-remove" onclick="removeElement(this)" style="background: #dc3545; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Remove</button>
+                </div>
+            `;
+            container.appendChild(newItem);
+        }
+
+        // Add Short Term Goal
+        function addShortTermGoal() {
+            const container = document.getElementById('short-term-goals');
+            const newGoal = document.createElement('div');
+            newGoal.className = 'goal-item';
+            newGoal.innerHTML = `
+                <textarea name="short_term_goals[]" rows="3" placeholder="Short term goal..."></textarea>
+                <input type="text" name="short_term_frequency[]" placeholder="Frequency (e.g., 3x/week)">
+                <button type="button" class="btn-remove" onclick="removeElement(this)" style="background: #dc3545; color: white; padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px; font-size: 0.85em;">Remove Goal</button>
+            `;
+            container.appendChild(newGoal);
+        }
+
+        // Add Long Term Goal
+        function addLongTermGoal() {
+            const container = document.getElementById('long-term-goals');
+            const newGoal = document.createElement('div');
+            newGoal.className = 'goal-item';
+            newGoal.innerHTML = `
+                <textarea name="long_term_goals[]" rows="3" placeholder="Long term goal..."></textarea>
+                <input type="text" name="long_term_frequency[]" placeholder="Frequency (e.g., Daily)">
+                <button type="button" class="btn-remove" onclick="removeElement(this)" style="background: #dc3545; color: white; padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; margin-top: 8px; font-size: 0.85em;">Remove Goal</button>
+            `;
+            container.appendChild(newGoal);
+        }
+
+        // Add Treatment Session
+        function addTreatmentSession() {
+            const container = document.getElementById('treatment-sessions-list');
+            const newSession = document.createElement('div');
+            newSession.className = 'treatment-session-item';
+            newSession.style.background = '#f8f9fc';
+            newSession.style.padding = '20px';
+            newSession.style.borderRadius = '8px';
+            newSession.style.marginBottom = '20px';
+            newSession.innerHTML = `
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <input type="date" name="session_date[]">
+                    </div>
+                    <div class="form-group">
+                        <label>Modalities:</label>
+                        <input type="text" name="session_modalities[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Assessment:</label>
+                        <input type="text" name="session_assessment[]">
+                    </div>
+                    <div class="form-group">
+                        <label>Measurement:</label>
+                        <input type="text" name="session_measurement[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>CDT:</label>
+                        <input type="text" name="session_cdt[]">
+                    </div>
+                    <div class="form-group">
+                        <label>MFRT:</label>
+                        <input type="text" name="session_mfrt[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Exercises:</label>
+                        <input type="text" name="session_exercises[]">
+                    </div>
+                    <div class="form-group">
+                        <label>SABC:</label>
+                        <input type="text" name="session_sabc[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Patient Education:</label>
+                        <input type="text" name="session_patient_education[]">
+                    </div>
+                    <div class="form-group">
+                        <label>Others:</label>
+                        <input type="text" name="session_others[]">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button type="button" class="btn-remove" onclick="removeElement(this)" style="background: #dc3545; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">Remove Session</button>
+                </div>
+            `;
+            container.appendChild(newSession);
+        }
+    </script>
+</body>
+</html>
